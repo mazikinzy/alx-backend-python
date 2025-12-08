@@ -2,20 +2,25 @@
 
 import sqlite3
 
-conn = "ALX_prodev.sql"
-cursor = conn.cursor()
 
-def create_database(n)
+def create_database(n):
     conn = sqlite3.connect(n)
-    return conn
+    cursor = conn.cursor()
+    return conn, cursor
 
-cursor = 
 
-    cursor.execute("""
-        CREATE TABLE IF NOT EXISTS user_data (
-        user_id INTEGER PRIMARY KEY,
-        user_name VARCHAR(40) NOT NULL,
-        email TEXT NOT NULL,
-        age DECIMAL NOT NULL
-);
-""")
+def create_insert_table(cursor, k):
+    cursor.execute(k)
+
+def fetch_all(cursor, rows):
+    cursor.execute(rows)
+    return cursor.fetchall()
+
+def disconnect(conn):
+    conn.close()
+
+def commit(conn):
+    conn.commit()
+
+def run():
+    print("Running the program")
