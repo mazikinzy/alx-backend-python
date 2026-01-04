@@ -1,27 +1,22 @@
 #!/usr/bin/python3
 
-import mysql.connector
+import sqlite3
 
-data = user_data.csv
+data = "user_data.csv"
 
 def connect_db():
-    conn = mysql.connector.connect(
-        host='127.0.0.1',
-        username='root',
-        password=629454699
-     )
+    conn = sqlite3.connect('ALX_prodev')
     cursor = conn.cursor()
     return conn, cursor
 
 
-def create_database(conn):
-    cursor = conn.cursor()
+def create_database(con):
+    cursor = con.cursor()
     cursor.execute("CREATE DATABASE IF NOT EXISTS ALX_prodev;")
 
 
 def connect_to_prodev():
-    conne = connect_db(database="ALX_prodev")
-    return conne
+    return conn
 
 
 def create_table(conn):
