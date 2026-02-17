@@ -5,38 +5,44 @@ import sqlite3
 data = "user_data.csv"
 
 def connect_db():
-    conn = sqlite3.connect('ALX_prodev')
-    cursor = conn.cursor()
-    return conn, cursor
+    connection = sqlite3.connect('ALX_prodev')
+    connection.close()
 
 
-def create_database(con):
-    cursor = con.cursor()
+def create_database():
+    connection = sqlite3.connect('ALX_prodev')
+    cursor = connection.cursor()
     cursor.execute("CREATE DATABASE IF NOT EXISTS ALX_prodev;")
+    
+    cursor.commit()
+    cursor.close()
 
 
 def connect_to_prodev():
-    return conn
+    connection = sqlite3.connect('ALX_prodev')
+    cursor = connection.cursor()
 
 
-def create_table(conn):
-    cursor = conn.cursor()
-    cursor.execute("""
-    CREATE TABLE IF NOT EXISTS user_data (
+def create_table():
+    connection = sqlite3.connect('ALX_prodev')
+    cursor = connnnection.cursor()
+    cursor.execute(CREATE TABLE IF NOT EXISTS user_data (
         user_id INTEGER AUTO_INCREMENT PRIMARY KEY,
         user_name VARCHAR NOT NULL,
         email VARCHAR NOT NULL,
         age DECIMAL NOT NULL
-        );
-        """
+        )
     )
+    
+    cursor.commit()
+    cursor.close()
 
 
-def insert_data(conn, data):
-    cursor = conn.cursor()
-    cursor.execute(
-    "INSERT INTO connection (user_name, email, age) VALUES (data)"
-    )
+def insert_data():
+    connection = sqlite3.connect('ALx_prodev')
+    cursor = connection.cursor()
+    cursor.execute("INSERT INTO user_data (user_name, email, age) VALUES (data)")
+
     conn.commit()
     conn.close()
 
