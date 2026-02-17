@@ -41,7 +41,7 @@ def create_table():
 def insert_data():
     connection = sqlite3.connect('ALx_prodev')
     cursor = connection.cursor()
-    cursor.execute("INSERT INTO user_data (user_name, email, age) VALUES (data)")
+    cursor.executemany("INSERT INTO user_data (user_name, email, age) VALUES (?, ?, ?)", data)
 
     conn.commit()
     conn.close()
