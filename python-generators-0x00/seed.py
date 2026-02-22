@@ -2,11 +2,10 @@
 
 import sqlite3
 
-data = "python-generators-0x00/user_data.csv"
-connection = sqlite3.connect('ALX_prodev')
 
 def connect_db():
     connection = sqlite3.connect('ALX_prodev')
+    return connection
 
 
 def create_database():
@@ -19,8 +18,7 @@ def create_database():
 
 def connect_to_prodev():
     connection = sqlite3.connect('ALX_prodev')
-    cursor = connection.cursor()
-
+    return connection
 
 def create_table():
     connection = sqlite3.connect('ALX_prodev')
